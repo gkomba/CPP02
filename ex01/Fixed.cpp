@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 06:21:21 by gkomba            #+#    #+#             */
-/*   Updated: 2025/04/04 16:43:49 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/04/06 14:57:14 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ Fixed::Fixed(const float &floatValue)
 Fixed::Fixed(Fixed const &object)
 {
     std::cout << "Copy constructor called" << std::endl;
-    rawBits = object.rawBits;
+    /*evita a chamada do copy assigment*/
+    // rawBits = object.rawBits;
+    *this = object;
 }
 
 Fixed   &Fixed::operator=(const Fixed& object)
@@ -44,7 +46,7 @@ Fixed   &Fixed::operator=(const Fixed& object)
     {
         this->rawBits = object.getRawBits();
     }
-    return *(this);
+    return (*this);
 }
 
 int     Fixed::getRawBits(void) const
@@ -64,7 +66,13 @@ int   Fixed::toInt(void) const
 
 float   Fixed::toFloat(void)  const
 {
-    return (float)getRawBits() / (1 << fractionalBits);
+    return ((float)getRawBits() / (1 << fractionalBits));
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed &object)
+{
+    os << object.toFloat();
+    return (os);
 }
 
 Fixed::~Fixed()
