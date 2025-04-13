@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 15:05:02 by gkomba            #+#    #+#             */
-/*   Updated: 2025/04/13 06:11:06 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/04/13 06:33:08 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ class Fixed
         static  Fixed& min(Fixed& a, Fixed& b);
         static const Fixed& min(const Fixed& a, const Fixed& b);
         
-        //max
+        // max
         static  Fixed& max(Fixed& a, Fixed& b);
         static const Fixed& max(const Fixed& a, const Fixed& b);
         ~Fixed();

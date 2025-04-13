@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 15:04:46 by gkomba            #+#    #+#             */
-/*   Updated: 2025/04/13 06:12:52 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/04/13 06:37:28 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ std::ostream&   operator<<(std::ostream& os, const Fixed& object)
     return (os);
 }
 
-// arithmetic operators
 Fixed  Fixed::operator+(const Fixed& object)
 {
     Fixed   result;
@@ -85,7 +84,7 @@ Fixed Fixed::operator*(const Fixed& other)
 
     long temp = static_cast<long>(this->rawBits) * other.rawBits;
     result.setRawBits(static_cast<int>(temp >> this->fractionaBits));
-    return result;
+    return (result);
 }
 
 Fixed Fixed::operator/(const Fixed& other)
@@ -94,7 +93,7 @@ Fixed Fixed::operator/(const Fixed& other)
 
     long dividend = static_cast<long>(this->rawBits) << fractionaBits;
     result.setRawBits(static_cast<int>(dividend / other.rawBits));
-    return result;
+    return (result);
 }
 
 bool   Fixed::operator>(const Fixed& other) const
@@ -132,7 +131,7 @@ Fixed& Fixed::min(Fixed& a, Fixed& b)
     if (a < b)
         return (a);
     else
-        return b;
+        return (b);
 }
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
